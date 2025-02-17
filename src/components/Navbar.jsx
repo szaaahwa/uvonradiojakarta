@@ -14,28 +14,28 @@ const Navbar = () => {
         <img src="/logo_uvon.svg" alt="" className="w-20" />
         <a
           href="/"
-          className={isActive ? "bg-red-500 rounded-full flex justify-center p-3 w-15 h-15 group" : "bg-gray-500 rounded-full flex justify-center p-3 w-15 h-15 group"}
+          className={isActive("/") ? "bg-red-500 rounded-full flex justify-center p-3 w-15 h-15 group" : "bg-gray-300 rounded-full flex justify-center p-3 w-15 h-15 group hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out"}
         >
-          <IoMdHome className="text-[30px] group-hover:text-white ease-in-out duration-300 transition-colors" />
+          <IoMdHome className="text-[30px]" />
         </a>
         {/* about */}
         <a
           href="/about-us"
-          className="bg-gray-300 p-2 px-4 rounded-full hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out"
+          className={isActive("/about-us") ? "bg-red-500 p-2 px-4 rounded-full transition-colors duration-300 ease-in-out text-white" :"bg-gray-300 p-2 px-4 rounded-full hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out"}
         >
           About
         </a>
         {/* news */}
         <a
           href="/news"
-          className="bg-gray-300 p-2 px-4 rounded-full hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out"
+          className={isActive("/news") ? "bg-red-500 p-2 px-4 rounded-full transition-colors duration-300 ease-in-out text-white" :"bg-gray-300 p-2 px-4 rounded-full hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out"}
         >
           News
         </a>
         {/* media */}
         <a
           href="/media"
-          className="bg-gray-300 p-2 px-4 rounded-full hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out"
+          className={isActive("/media") ? "bg-red-500 p-2 px-4 rounded-full transition-colors duration-300 ease-in-out text-white" :"bg-gray-300 p-2 px-4 rounded-full hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out"}
         >
           Media
         </a>

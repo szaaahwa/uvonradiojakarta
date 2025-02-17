@@ -15,7 +15,7 @@ const ContactUs = () => {
           className={
             isClick
               ? "bg-red-500 p-2 px-4 rounded-full text-white transition-colors duration-300 ease-in-out cursor-pointer"
-              : "bg-gray-300 p-2 px-4 rounded-full transition-colors duration-300 ease-in-out cursor-pointer"
+              : "bg-gray-300 p-2 px-4 rounded-full transition-colors duration-300 ease-in-out cursor-pointer hover:bg-red-500 hover:text-white"
           }
         >
           Contact Us
