@@ -12,7 +12,7 @@ const About = () => {
       <div className="font-sans flex flex-col bg-black md:pl-5 pt-5  ">
         <Navbar />
         <main className="flex md:flex-row flex-col">
-          <div className=" md:h-screen md:w-[69%] w-full overflow-y-auto mt-2">
+          <div className=" h-screen md:w-[69%] w-full overflow-y-auto mt-2">
             <Header
               title={"UVON RADIO JAKARTA"}
               subtitle={"Entertaining, Educating, and Inspiring"}

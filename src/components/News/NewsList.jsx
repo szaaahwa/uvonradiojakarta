@@ -6,8 +6,8 @@ const NewsList = () => {
   useEffect(() => {
     const fetchAllNews = async () => {
       try {
-        const res = await axios.get("");
-        setNews(res.data);
+        const res = await axios.get("http://uvon.test/news/get_news.php");
+        setNews(res.data.news || []);
       } catch (error) {
         console.log(error);
       }
