@@ -36,7 +36,7 @@ const Home = () => {
                 Show all
               </a>
             </div>
-            <div className="p-5">
+            <div className="p-5 flex flex-col gap-2">
               <NewsList />
             </div>
             <img src="/image.png" alt="" />

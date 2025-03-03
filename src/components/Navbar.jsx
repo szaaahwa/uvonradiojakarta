@@ -7,7 +7,7 @@ import ContactUs from "./ContactUs";
 
 const Navbar = () => {
   const location = useLocation()
-  const isActive = (path)=> location.pathname === path
+  const isActive = (path)=> location.pathname === path  
   return (
     <nav className="flex gap-5 justify-between">
       <div className="md:flex gap-5 items-center hidden">

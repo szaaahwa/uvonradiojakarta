@@ -12,7 +12,8 @@ import { FaRegClock } from "react-icons/fa";
 
 const NewsDetail = () => {
   const { id } = useParams();
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getNews = async () => {
@@ -22,61 +23,92 @@ const NewsDetail = () => {
         );
         setNews(res.data);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching news:", error);
+      } finally {
+        setLoading(false);
       }
     };
+
     getNews();
-  });
+  }, [id]); 
 
   return (
     <>
-      <Head title={"Home"} />
-      <div className="font-sans flex flex-col bg-black md:pl-5 pt-5  ">
+      <Head title={"News Detail"} />
+      <div className="font-sans flex flex-col bg-black md:pl-5 pt-5">
         <Navbar />
+        
         <main className="flex md:flex-row flex-col">
-          <div className=" md:h-screen md:w-[69%] w-full overflow-y-auto mt-2">
+          <div className="md:h-screen md:w-[69%] w-full overflow-y-auto mt-2">
             <Header
-              title={"UVON NEWS "}
+              title={"UVON NEWS"}
               subtitle={"Stay Tuned, Stay Informed, and Stay UVON"}
             />
-            <div>{/* Tombol Filter */}</div>
             <hr className="border-white mx-2 mt-2 mb-4" />
-            {/* berita  */}
-            {news && (
+            {loading ? (
+              <div className="text-center text-white">Loading...</div>
+            ) : news && news.judul ? (
               <div>
-                <div className="bg-[#434343] p-5  rounded-lg m-3">
+                <div className="bg-[#434343] p-5 rounded-lg m-3">
                   <h2 className="text-2xl text-white">{news.judul}</h2>
                 </div>
-                <div className="flex">
-                  <div className="flex items-center text-white gap-1 px-4">
+
+                <div className="flex text-white gap-4 px-4">
+                  <div className="flex items-center gap-1">
                     <PiUserCircleFill />
-                    <p>{news.nama_penulis}</p>
+                    <p>{news.nama_penulis || "Unknown"}</p>
                   </div>
-                  <div className="flex items-center text-white gap-1 px-4">
+                  <div className="flex items-center gap-1">
                     <SlCalender />
-                    <p>{news.tanggal}</p>
+                    <p>{news.tanggal || "No Date"}</p>
                   </div>
-                  <div className="flex items-center text-white gap-1 px-4">
+                  <div className="flex items-center gap-1">
                     <FaRegClock />
-                    <p>{news.jam}</p>
+                    <p>{news.jam || "No Time"}</p>
                   </div>
                 </div>
-                {/* gambar */}
+
+                {/* News Image */}
                 <div className="px-4 flex justify-center my-5">
-                  <img src={`${news.foto}`} alt="" />
+                  <img
+                    src={
+                      news.foto
+                        ? `http://uvon.test/news/${news.foto}`
+                        : "/logo_uvon.svg"
+                    }
+                    alt="News Image"
+                    className="w-full max-w-lg object-cover rounded"
+                    onError={(e) => {
+                      e.target.src = "/logo_uvon.svg";
+                    }}
+                  />
                 </div>
-                {/* isi */}
-                <div className="bg-[#434343] p-5  rounded-lg m-3 text-justify">
-                  <p className="text-white">{news.isi}</p>
+
+                <div className="bg-[#434343] p-5 rounded-lg m-3 text-justify text-white">
+                  <div
+                    className="pointer-events-auto"
+                    dangerouslySetInnerHTML={{ __html: news.isi }}
+                    onClick={(e) => {
+                      const target = e.target;
+                      if (target.tagName === "A") {
+                        e.preventDefault();
+                        window.open(target.href, "_blank");
+                      }
+                    }}
+                  />
                 </div>
               </div>
+            ) : (
+              <div className="text-center text-white">News not found.</div>
             )}
-            <div className="md:hidden md:w-[31%] w-full h-screen overflow-y-auto mt-2 px-2 block">
+            \
+            <div className="md:hidden w-full h-screen overflow-y-auto mt-2 px-2">
               <Side />
             </div>
             <Footer />
           </div>
-          <div className="hidden md:w-[31%] w-full h-screen overflow-y-auto mt-2 px-2 md:block">
+          \
+          <div className="hidden md:block md:w-[31%] w-full h-screen overflow-y-auto mt-2 px-2">
             <Side />
           </div>
         </main>

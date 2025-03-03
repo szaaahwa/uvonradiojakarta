@@ -5,6 +5,8 @@ import About from "./pages/About";
 import News from "./pages/News";
 import Media from "./pages/Media";
 import NewsDetail from "./pages/NewsDetail";
+import Dashboard from "./pages/admin/Dashboard";
+import NewsMain from "./pages/admin/NewsMain";
 
 
 function App() {
@@ -18,6 +20,10 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/news/:id" element={<NewsDetail />} />
         <Route path="/media" element={<Media />} />
+
+        {/* adminnn */}
+        <Route path="/admin/dashboard" element={<Dashboard/>}/>
+        <Route path="/admin/news" element={<NewsMain/>}/>
       </Routes>
     </>
   );
