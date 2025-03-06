@@ -6,25 +6,25 @@ import ReactPaginate from "react-paginate";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
-const NewsList = () => {
-  const [news, setNews] = useState([]);
+const MediaList = () => {
+    const [media, setmedia] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage] = useState(10);
   useEffect(() => {
-    const fetchAllNews = async () => {
+    const fetchAllmedia = async () => {
       try {
-        const res = await axios.get("http://uvon.test/news/get_news.php");
-        setNews(res.data.news);
+        const res = await axios.get("http://uvon.test/media/add_media.php");
+        setmedia(res.data.media);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchAllNews();
+    fetchAllmedia();
   }, []);
 
-  const indexOfLastNews = (currentPage + 1) * itemsPerPage;
-  const indexOfFirstNews = indexOfLastNews - itemsPerPage;
-  const currentNews = news.slice(indexOfFirstNews, indexOfLastNews);
+  const indexOfLastmedia = (currentPage + 1) * itemsPerPage;
+  const indexOfFirstmedia = indexOfLastmedia - itemsPerPage;
+  const currentmedia = media.slice(indexOfFirstmedia, indexOfLastmedia);
 
   const handlePageClick = (event) => {
     setCurrentPage(event.selected);
@@ -33,10 +33,10 @@ const NewsList = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        "http://uvon.test/news/delete_news.php?id=" + id
+        "http://uvon.test/media/delete_media.php?id=" + id
       );
 
-      setNews((prev) => prev.filter((news) => news.id !== id));
+      setmedia((prev) => prev.filter((media) => media.id !== id));
 
       if (res.status == 200) {
         toast.success("Berhasil Menghapus Berita!");
@@ -47,56 +47,45 @@ const NewsList = () => {
       console.log(error);
     }
   };
-
   return (
     <>
       <div className="overflow-x-auto p-2 w-full">
         <table className="rounded-md ring-2 ring-white border-collapse mt-3 w-[900px] md:w-full mx-auto xl:mx-0 text-sm bg-[#252525]">
           <thead>
             <tr className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] rounded-md ring-2 ring-white">
-              <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] rounded-l-md p-2 w-[100px] md:text-[20px] text-white border-r-2 border-white">
+              <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] rounded-l-md p-2 w-[300px] md:text-[20px] text-white border-r-2 border-white">
                 foto
               </th>
               <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] p-2 md:text-[20px] text-white md:px-6 border-r-2 border-white">
-                Judul Berita
+                Caption
               </th>
-              <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] p-2 md:text-[20px] md:px-6 border-r-2 text-white border-white">
-                penulis
-              </th>
-              <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] p-2 md:text-[20px] md:px-6 border-r-2 text-white border-white">
-                Kategori
-              </th>
+             
               <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] rounded-r-md p-2 md:text-[20px] text-white md:px-6 ">
                 Aksi
               </th>
             </tr>
           </thead>
           <tbody>
-            {currentNews.map((news, index) => (
+            {currentmedia.map((media, index) => (
               <tr className="text-center" key={index}>
                 <td className="p-2 border-r-2 border-white w-[150px]">
-                  <img src={`http://uvon.test/news/${news.foto}`} alt="" />
+                  <img src={`http://uvon.test/media/${media.foto}`} alt="" />
                 </td>
                 <td className="p-2 border-r-2 border-white">
-                  <p className="line-clamp-1  text-white">{news.judul}</p>
+                  <p className="line-clamp-1  text-white">{media.caption}</p>
                 </td>
-                <td className="p-2 border-r-2 border-white">
-                  <p className="text-white">{news.nama_penulis}</p>
-                </td>
-                <td className="p-2 border-r-2 border-white">
-                  <p className="text-white">{news.kategori}</p>
-                </td>
+                
                 <td className="p-2">
                   <div className="flex gap-2 justify-center">
                     <Link
-                      to={`/admin/edit-news/${news.id}`}
+                      to={`/admin/edit-media/${media.id}`}
                       className="bg-white p-2 rounded-md hover:bg-gradient-to-b text-white bg-gradient-to-b from-[#c24c4e] to-[#FB3748]  hover:text-yellow-300 duration-300 ease-in-out transition "
                     >
                       <FaPencil />
                     </Link>
                     <button
                       className="bg-white p-2 rounded-md hover:bg-gradient-to-b  text-white bg-gradient-to-b from-[#c24c4e] to-[#FB3748]  duration-300 ease-in-out transition cursor-pointer hover:text-yellow-300 "
-                      onClick={() => handleDelete(news.id)}
+                      onClick={() => handleDelete(media.id)}
                     >
                       <BsTrash className="" />
                     </button>
@@ -113,7 +102,7 @@ const NewsList = () => {
         nextClassName="cursor-pointer hover:text-yellow-300 ease-in-out duration-300 transition-all"
         previousClassName="cursor-pointer hover:text-yellow-300 ease-in-out duration-300 transition-all"
         breakLabel={"..."}
-        pageCount={Math.ceil(news.length / itemsPerPage)}
+        pageCount={Math.ceil(media.length / itemsPerPage)}
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
@@ -123,7 +112,7 @@ const NewsList = () => {
         activeClassName={"active  rounded cursor-pointer"}
       />
     </>
-  );
-};
+  )
+}
 
-export default NewsList;
+export default MediaList

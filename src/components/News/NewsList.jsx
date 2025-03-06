@@ -26,7 +26,7 @@ const NewsList = () => {
             <img
               src={`http://uvon.test/news/${berita.foto}`}
               alt=""
-              className="w-15 h-15 object-cover"
+              className="w-15 h-15 object-cover rounded"
               onError={(e) => {
                 e.target.src = "logo_uvon.svg";
               }}

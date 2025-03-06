@@ -7,6 +7,9 @@ import Media from "./pages/Media";
 import NewsDetail from "./pages/NewsDetail";
 import Dashboard from "./pages/admin/Dashboard";
 import NewsMain from "./pages/admin/NewsMain";
+import NewsEdit from "./components/admin/News/NewsEdit";
+import MediaAdmin from "./pages/admin/MediaMain";
+import MediaEdit from "./components/admin/Media/MediaEdit";
 
 
 function App() {
@@ -23,7 +26,13 @@ function App() {
 
         {/* adminnn */}
         <Route path="/admin/dashboard" element={<Dashboard/>}/>
+        {/* berita */}
         <Route path="/admin/news" element={<NewsMain/>}/>
+        <Route path="/admin/edit-news/:id" element={<NewsEdit/>}/>
+
+        {/* Media */}
+        <Route path="/admin/media" element={<MediaAdmin/>}/>
+        <Route path="/admin/edit-media/:id" element={<MediaEdit/>}/>
       </Routes>
     </>
   );

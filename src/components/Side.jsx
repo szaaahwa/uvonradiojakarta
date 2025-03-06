@@ -18,7 +18,7 @@ const Side = () => {
   return (
     <div className="px-5 bg-black text-white">
       {/* Spotify Embed */}
-      <p className="mb-2 text-2xl">UVON Chart</p>
+      <p className="mb-2 text-2xl font-bold">UVON Chart</p>
       <iframe
         className="rounded-lg"
         src="https://open.spotify.com/embed/playlist/63IOpwGD5rCw8b6RTvUTiD?si=4bb7519923cb412a"
@@ -28,7 +28,7 @@ const Side = () => {
         loading="lazy"
       ></iframe>
       {/* instagram embed */}
-      <p className="my-5 text-2xl">UVON Updates</p>
+      <p className="my-5 text-2xl font-bold">UVON Updates</p>
       <div className="">
         <blockquote
           className="instagram-media "
@@ -37,7 +37,7 @@ const Side = () => {
         ></blockquote>
       </div>
       {/* Twitter Embed */}
-      <p className="my-5 text-2xl">UVON Tweets</p>
+      <p className="my-5 text-2xl font-bold">UVON Tweets</p>
       <blockquote className="twitter-tweet">
         <p lang="en" dir="ltr">
           FULL LINEUP RADIO ON AIR FESTIVAL 2023

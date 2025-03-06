@@ -5,7 +5,7 @@ import { AiFillTikTok } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className="bg-gradient-to-b from-[#761F21] to-[#FB3748] w-full p-5 h-[350px] flex flex-col md:flex-row text-left gap-5">
+    <div className="bg-gradient-to-b from-[#761F21] to-[#FB3748] w-full p-5 md:h-[350px] flex flex-col md:flex-row text-left gap-5">
       {/* HUbungi kami */}
       <div>
         <h3 className="text-2xl text-white">Hubungi Kami</h3>

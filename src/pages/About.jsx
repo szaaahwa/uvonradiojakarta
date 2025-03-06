@@ -12,7 +12,7 @@ const About = () => {
       <div className="font-sans flex flex-col bg-black md:pl-5 pt-5  ">
         <Navbar />
         <main className="flex md:flex-row flex-col">
-          <div className=" h-screen md:w-[69%] w-full overflow-y-auto mt-2">
+          <div className="h-screen md:w-[69%] w-full overflow-y-auto mt-2">
             <Header
               title={"UVON RADIO JAKARTA"}
               subtitle={"Entertaining, Educating, and Inspiring"}
@@ -22,7 +22,7 @@ const About = () => {
               <img src="/logo_uvon.svg" alt="" className="w-100" />
             </div>
             <hr className="border-white mx-2 mt-2 mb-4" />
-            {/* VIsi dan Misi */}
+            {/* Visi dan Misi */}
             <div className="flex md:flex-row flex-col text-white mb-5">
               {/* visi */}
               <div className="md:border-r-1 border-b-1 md:border-b-0 border-white h-full p-5 md:py-0 md:px-5 flex-1">

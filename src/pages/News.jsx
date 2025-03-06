@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 const News = () => {
   const [news, setNews] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All"); // State for selected category
+  const [selectedCategory, setSelectedCategory] = useState("All"); 
 
   useEffect(() => {
     const fetchAllNews = async () => {
@@ -22,7 +22,7 @@ const News = () => {
     fetchAllNews();
   }, []);
 
-  // List of categories for filtering
+
   const categories = [
     "All",
     "UVON Campus",
