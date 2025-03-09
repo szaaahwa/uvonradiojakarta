@@ -10,7 +10,14 @@ import NewsMain from "./pages/admin/NewsMain";
 import NewsEdit from "./components/admin/News/NewsEdit";
 import MediaAdmin from "./pages/admin/MediaMain";
 import MediaEdit from "./components/admin/Media/MediaEdit";
-
+import ProgramMain from "./pages/admin/ProgramMain"
+import ProgramEdit from "./components/admin/Program/ProgramEdit";
+import DivisiMain from "./pages/admin/DivisiMain";
+import Contact from "./pages/admin/Contact";
+import DivisiEdit from "./components/admin/Divisi/DivisiEdit";
+import Divisi from "./pages/Divisi";
+import Login from "./pages/admin/auth/Login";
+import Register from "./pages/admin/auth/Register";
 
 function App() {
   return (
@@ -23,6 +30,7 @@ function App() {
         <Route path="/news" element={<News />} />
         <Route path="/news/:id" element={<NewsDetail />} />
         <Route path="/media" element={<Media />} />
+        <Route path="/divisi" element={<Divisi/>}/>
 
         {/* adminnn */}
         <Route path="/admin/dashboard" element={<Dashboard/>}/>
@@ -33,6 +41,21 @@ function App() {
         {/* Media */}
         <Route path="/admin/media" element={<MediaAdmin/>}/>
         <Route path="/admin/edit-media/:id" element={<MediaEdit/>}/>
+
+        {/* Programs */}
+        <Route path="/admin/program" element={<ProgramMain/>}/>
+        <Route path="/admin/edit-program/:id" element={<ProgramEdit/>}/>
+
+        {/* divisi */}
+        <Route path="/admin/divisi" element={<DivisiMain/>}/>
+        <Route path="/admin/edit-divisi/:id" element={<DivisiEdit/>}/>
+        
+
+        {/* kontak */}
+        <Route path="/admin/contact" element={<Contact/>}/>
+        {/* Login */}
+        <Route path="/admin/login" element={<Login/>}/>
+        <Route path="/admin/register" element={<Register/>}/>
       </Routes>
     </>
   );

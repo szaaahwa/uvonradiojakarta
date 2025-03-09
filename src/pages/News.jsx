@@ -48,7 +48,7 @@ const News = () => {
           <div className="md:h-screen md:w-[69%] w-full overflow-y-auto mt-2">
             <Header
               title={"UVON RADIO JAKARTA"}
-              subtitle={"Entertaining, Educating, and Inspiring"}
+              subtitle={"Stay Tuned, Stay Informed, and Stay UVON"}
             />
 
             {/* Filter Button */}

@@ -1,12 +1,30 @@
-import React, { useState } from "react";
-
+import React, { useState,useEffect } from "react";
+import axios from "axios";
 const ContactUs = () => {
   const [isClick, setIsClick] = useState(false);
   const [isModal, setIsmodal] = useState(false);
+  const [contact, setContact] = useState(null);
   const HandleOnClick = () => {
     setIsClick(!isClick);
     setIsmodal(!isModal);
   };
+
+  useEffect(() => {
+    const fetchContact = async () => {
+      try {
+        const res = await axios.get("http://uvon.test/contact/contact.php");
+        if (res.data && res.data.contact && res.data.contact.length > 0) {
+          setContact(res.data.contact[0]);
+        } else {
+          console.warn("No contact data found");
+          setContact(null);
+        }
+      } catch (error) {
+        console.error("Error fetching contact data:", error);
+      }
+    };
+    fetchContact();
+  }, []);
   return (
     <>
       <div className="relative">
@@ -21,12 +39,14 @@ const ContactUs = () => {
           Contact Us
         </div>
         {isModal && (
-          <div className="absolute top-12 rounded-lg bg-[#434343] w-[230px] p-2 text-white text-center">
+          <div className="absolute top-12 rounded-lg bg-[#434343] w-[230px] p-2 text-white text-center z-50">
             <p className="text-xl">UVON CONTACT</p>
-            <p className="text-[12px] leading-4">
-              Kevin Rifqy Razzan <br />
-              Uvonradiojakarta@gmail.com <br /> 0890876546576879
-            </p>
+            {contact && (
+              <p className="text-[12px] leading-4">
+                {contact.nama} <br />
+                {contact.email} <br /> {contact.telpon}
+              </p>
+            )}
             <p className="text-sm">Stay Connected with UVON</p>
           </div>
         )}

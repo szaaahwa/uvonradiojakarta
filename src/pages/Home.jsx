@@ -8,7 +8,8 @@ import Chat from "../components/Chat";
 import NewsList from "../components/News/NewsList";
 import PodcastsPlayer from "../components/PodcastPlayer";
 import MediaShow from "../components/Media/MediaShow";
-
+import ProgramShow from "../components/Program/ProgramShow";
+import DivisiShow from "../components/Divisi/DivisiShow";
 const Home = () => {
   return (
     <>
@@ -32,6 +33,13 @@ const Home = () => {
             <div className="">
               <PodcastsPlayer />
             </div>
+            {/* programs uvon */}
+            <div className="flex justify-between px-4 items-center">
+              <h2 className="text-white text-2xl font-bold">UVON Programs</h2>
+            </div>
+            <div className="px-4 flex gap-5 md:flex-row flex-col">
+              <ProgramShow/>
+            </div>
             {/* berita uvon */}
             <div className="flex justify-between px-4 items-center">
               <h2 className="text-white text-2xl font-bold">UVON News</h2>
@@ -44,6 +52,19 @@ const Home = () => {
             </div>
             <div className="p-5 flex flex-col gap-2">
               <NewsList />
+            </div>
+            
+            <div className="flex justify-between px-4 items-center">
+              <h2 className="text-white text-2xl font-bold">UVON Divisions</h2>
+              <a
+                href="/divisi"
+                className="text-gray-400 hover:text-red-400 ease-in-out duration-300"
+              >
+                Show all
+              </a>
+            </div>
+            <div className="flex gap-2 p-5 md:flex-row flex-col">
+              <DivisiShow/>
             </div>
             <div className="flex justify-between px-4 items-center">
               <h2 className="text-white text-2xl font-bold">UVON Moments</h2>
