@@ -67,13 +67,13 @@ const Footer = () => {
         <h3 className="md:text-2xl text-white">Follow Us</h3>
         <br />
         <div className="flex gap-3 justify-center">
-          <a href={contact?.instagram || "#"} target="_blank" rel="noopener noreferrer" className="text-5xl text-white hover:text-yellow-300 transition duration-300">
+          <a href={ "https://www.instagram.com/uvonradiojakarta?igsh=MTFpcnE0Zno3Z3J0cQ=="} target="_blank" rel="noopener noreferrer" className="text-5xl text-white hover:text-yellow-300 transition duration-300">
             <FaSquareInstagram />
           </a>
-          <a href={contact?.tiktok || "#"} target="_blank" rel="noopener noreferrer" className="text-5xl text-white hover:text-yellow-300 transition duration-300">
+          <a href={ "https://www.tiktok.com/@uvonradiojakarta?_t=ZS-8uXtfbhmyBU&_r=1"} target="_blank" rel="noopener noreferrer" className="text-5xl text-white hover:text-yellow-300 transition duration-300">
             <AiFillTikTok />
           </a>
-          <a href={contact?.twitter || "#"} target="_blank" rel="noopener noreferrer" className="text-5xl text-white hover:text-yellow-300 transition duration-300">
+          <a href={"https://x.com/uvonradio?t=jpwM_XCU3W_9eQeHxnBYcA&s=09"} target="_blank" rel="noopener noreferrer" className="text-5xl text-white hover:text-yellow-300 transition duration-300">
             <FaSquareXTwitter />
           </a>
         </div>
