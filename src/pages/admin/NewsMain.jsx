@@ -34,7 +34,7 @@ const NewsMain = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/news/add_news.php",
+        "https://uvonradiojakarta.com/uvon/news/add_news.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

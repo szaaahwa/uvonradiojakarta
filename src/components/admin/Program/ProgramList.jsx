@@ -13,7 +13,7 @@ const ProgramList = () => {
     useEffect(() => {
       const fetchAllProgram = async () => {
         try {
-          const res = await axios.get("http://uvon.test/program/program.php");
+          const res = await axios.get("https://uvonradiojakarta.com/uvon/program/program.php");
           setProgram(res.data.program || []);
         } catch (error) {
           console.log(error);
@@ -33,7 +33,7 @@ const ProgramList = () => {
     const handleDelete = async (id) => {
       try {
         const res = await axios.delete(
-          "http://uvon.test/program/delete_program.php?id=" + id
+          "https://uvonradiojakarta.com/uvon/program/delete_program.php?id=" + id
         );
   
         setProgram((prev) => prev.filter((program) => program.id !== id));
@@ -69,7 +69,7 @@ const ProgramList = () => {
             {currentprogram.map((program, index) => (
               <tr className="text-center" key={index}>
                 <td className="p-2 border-r-2 border-white w-[150px]">
-                  <img src={`http://uvon.test/program/${program.foto}`} alt="" />
+                  <img src={`https://uvonradiojakarta.com/uvon/program/${program.foto}`} alt="" />
                 </td>
                 <td className="p-2 border-r-2 border-white">
                   <p className="line-clamp-1  text-white">{program.nama_program}</p>

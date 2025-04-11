@@ -74,7 +74,7 @@ const DivisiMain = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/divisi/divisi.php",
+        "https://uvonradiojakarta.com/uvon/divisi/divisi.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

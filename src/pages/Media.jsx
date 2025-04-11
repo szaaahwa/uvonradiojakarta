@@ -14,7 +14,7 @@ const Media = () => {
   useEffect(() => {
     const fetchAllMedia = async () => {
       try {
-        const res = await axios.get("http://uvon.test/media/add_media.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/media/add_media.php");
         setMedia(res.data.media);
       } catch (error) {
         console.log(error);
@@ -52,7 +52,7 @@ const Media = () => {
                     className="w-full rounded-md relative mt-2 cursor-pointer"
                   >
                     <img
-                      src={`http://uvon.test/media/${item.foto}`}
+                      src={`https://uvonradiojakarta.com/uvon/media/${item.foto}`}
                       alt={item.caption}
                       className="w-full h-auto rounded-md"
                     />
@@ -68,7 +68,7 @@ const Media = () => {
               >
                 <div className="flex flex-col items-center">
                   <img
-                    src={`http://uvon.test/media/${selectedMedia.foto}`}
+                    src={`https://uvonradiojakarta.com/uvon/media/${selectedMedia.foto}`}
                     alt={selectedMedia.caption}
                     className="w-3/4 md:w-1/2 rounded-md shadow-lg"
                   />

@@ -19,7 +19,7 @@ const Contact = () => {
     const fetchcontact = async () => {
       try {
         const response = await axios.get(
-          `http://uvon.test/contact/contact.php?id=${1}`
+          `https://uvonradiojakarta.com/uvon/contact/contact.php?id=${1}`
         );
         const { nama, email, telpon } = response.data;
 
@@ -51,7 +51,7 @@ const Contact = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/contact/contact.php",
+        "https://uvonradiojakarta.com/uvon/contact/contact.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

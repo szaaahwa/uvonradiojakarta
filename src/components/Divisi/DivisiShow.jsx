@@ -6,7 +6,7 @@ const DivisShow = () => {
   useEffect(() => {
     const fetchAlldivisi = async () => {
       try {
-        const res = await axios.get("http://uvon.test/divisi/divisi.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/divisi/divisi.php");
         setdivisi(res.data.divisi);
       } catch (error) {
         console.log(error);
@@ -24,9 +24,9 @@ const DivisShow = () => {
             key={index}
           >
             <img
-              src={`http://uvon.test/divisi/${divisi.foto}`}
+              src={`https://uvonradiojakarta.com/uvon/divisi/${divisi.foto}`}
               alt=""
-              className="w-80 h-80 md:h-35 md:w-35 rounded-full object-cover"
+              className="w-30 h-30 md:h-35 md:w-35 rounded-full object-cover"
               onError={(e) => {
                 e.target.src = "logo_uvon.svg";
               }}

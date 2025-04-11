@@ -13,7 +13,7 @@ const DivisiList = () => {
     useEffect(() => {
       const fetchAlldivisi = async () => {
         try {
-          const res = await axios.get("http://uvon.test/divisi/divisi.php");
+          const res = await axios.get("https://uvonradiojakarta.com/uvon/divisi/divisi.php");
           setdivisi(res.data.divisi);
         } catch (error) {
           console.log(error);
@@ -33,7 +33,7 @@ const DivisiList = () => {
     const handleDelete = async (id) => {
       try {
         const res = await axios.delete(
-          "http://uvon.test/divisi/delete_divisi.php?id=" + id
+          "https://uvonradiojakarta.com/uvon/divisi/delete_divisi.php?id=" + id
         );
   
         setdivisi((prev) => prev.filter((divisi) => divisi.id !== id));
@@ -72,7 +72,7 @@ const DivisiList = () => {
           {currentdivisi.map((divisi, index) => (
             <tr className="text-center" key={index}>
               <td className="p-2 border-r-2 border-white ">
-                <img src={`http://uvon.test/divisi/${divisi.foto}`} alt="" className="w-50 h-50 object-cover object-center rounded-full mx-auto"/>
+                <img src={`https://uvonradiojakarta.com/uvon/divisi/${divisi.foto}`} alt="" className="w-50 h-50 object-cover object-center rounded-full mx-auto"/>
               </td>
               <td className="p-2 border-r-2 border-white">
                 <p className="line-clamp-1  text-white">{divisi.nama}</p>

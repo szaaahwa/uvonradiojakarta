@@ -13,7 +13,7 @@ const MediaList = () => {
   useEffect(() => {
     const fetchAllmedia = async () => {
       try {
-        const res = await axios.get("http://uvon.test/media/add_media.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/media/add_media.php");
         setmedia(res.data.media);
       } catch (error) {
         console.log(error);
@@ -33,7 +33,7 @@ const MediaList = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        "http://uvon.test/media/delete_media.php?id=" + id
+        "https://uvonradiojakarta.com/uvon/media/delete_media.php?id=" + id
       );
 
       setmedia((prev) => prev.filter((media) => media.id !== id));
@@ -69,7 +69,7 @@ const MediaList = () => {
             {currentmedia.map((media, index) => (
               <tr className="text-center" key={index}>
                 <td className="p-2 border-r-2 border-white w-[150px]">
-                  <img src={`http://uvon.test/media/${media.foto}`} alt="" />
+                  <img src={`https://uvonradiojakarta.com/uvon/media/${media.foto}`} alt="" />
                 </td>
                 <td className="p-2 border-r-2 border-white">
                   <p className="line-clamp-1  text-white">{media.caption}</p>

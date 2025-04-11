@@ -17,11 +17,11 @@ const MediaEdit = () => {
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        const response = await axios.get(`http://uvon.test/media/add_media.php?id=${id}`);
+        const response = await axios.get(`https://uvonradiojakarta.com/uvon/media/add_media.php?id=${id}`);
         const { caption, foto } = response.data;
 
         setMediaData({ caption });
-        setCurrentFoto(foto ? `http://uvon.test/media/${foto}` : "");
+        setCurrentFoto(foto ? `https://uvonradiojakarta.com/uvon/media/${foto}` : "");
       } catch (error) {
         console.error("Error fetching media:", error);
         toast.error("Gagal mengambil data media");
@@ -50,7 +50,7 @@ const MediaEdit = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/media/edit_media.php",
+        "https://uvonradiojakarta.com/uvon/media/edit_media.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

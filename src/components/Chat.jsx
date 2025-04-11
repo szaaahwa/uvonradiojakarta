@@ -41,7 +41,7 @@ const Chat = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/request/request.php",
+        "https://uvonradiojakarta.com/uvon/request/request.php",
         formData
       );
       if (res.status === 200) {

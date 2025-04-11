@@ -25,7 +25,7 @@ const NewsEdit = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get(`http://uvon.test/news/get_news.php?id=${id}`);
+        const response = await axios.get(`https://uvonradiojakarta.com/uvon/news/get_news.php?id=${id}`);
         const { judul, nama_penulis, foto, isi, kategori } = response.data;
 
         setNewsData({
@@ -36,7 +36,7 @@ const NewsEdit = () => {
           foto: "",
         });
 
-        setCurrentFoto(`http://uvon.test/news/${foto}`); 
+        setCurrentFoto(`https://uvonradiojakarta.com/uvon/news/${foto}`); 
         setLoading(false);
       } catch (error) {
         console.error("Error fetching news:", error);
@@ -78,7 +78,7 @@ const NewsEdit = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/news/edit_news.php",
+        "https://uvonradiojakarta.com/uvon/news/edit_news.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

@@ -6,7 +6,7 @@ const NewsList = () => {
   useEffect(() => {
     const fetchAllNews = async () => {
       try {
-        const res = await axios.get("http://uvon.test/news/get_news.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/news/get_news.php");
         setNews(res.data.news || []);
       } catch (error) {
         console.log(error);
@@ -24,7 +24,7 @@ const NewsList = () => {
             key={index}
           >
             <img
-              src={`http://uvon.test/news/${berita.foto}`}
+              src={`https://uvonradiojakarta.com/uvon/news/${berita.foto}`}
               alt=""
               className="w-15 h-15 object-cover rounded"
               onError={(e) => {

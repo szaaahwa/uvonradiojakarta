@@ -6,7 +6,7 @@ const MediaShow = () => {
     useEffect(() => {
         const fetchAllmedia = async () => {
           try {
-            const res = await axios.get("http://uvon.test/media/add_media.php");
+            const res = await axios.get("https://uvonradiojakarta.com/uvon/media/add_media.php");
             setmedia(res.data.media);
           } catch (error) {
             console.log(error);
@@ -24,7 +24,7 @@ const MediaShow = () => {
           key={index}
         >
           <img
-            src={`http://uvon.test/media/${media.foto}`}
+            src={`https://uvonradiojakarta.com/uvon/media/${media.foto}`}
             alt=""
             className="w-80 h-80 md:h-35 md:w-35  object-cover rounded"
             onError={(e) => {

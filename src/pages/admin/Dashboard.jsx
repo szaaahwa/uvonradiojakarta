@@ -11,7 +11,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAllRequest = async () => {
       try {
-        const res = await axios.get("http://uvon.test/request/request.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/request/request.php");
         if (res.data && Array.isArray(res.data.request)) {
           const requests = res.data.request;
           setRequest(requests);

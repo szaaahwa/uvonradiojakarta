@@ -14,7 +14,7 @@ const Divisi = () => {
   useEffect(() => {
     const fetchAlldivisi = async () => {
       try {
-        const res = await axios.get("http://uvon.test/divisi/divisi.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/divisi/divisi.php");
         setdivisi(res.data.divisi);
       } catch (error) {
         console.log(error);
@@ -51,7 +51,7 @@ const Divisi = () => {
                       className=" rounded-md relative mt-2 cursor-pointer"
                     >
                       <img
-                        src={`http://uvon.test/divisi/${item.foto}`}
+                        src={`https://uvonradiojakarta.com/uvon/divisi/${item.foto}`}
                         alt={item.caption}
                         onClick={() => handleGambar(item)}
                         className="w-50 h-50 rounded-full object-cover object-center"
@@ -71,7 +71,7 @@ const Divisi = () => {
               >
                 <div className="flex flex-col items-center">
                   <img
-                    src={`http://uvon.test/divisi/${selecteddivisi.foto}`}
+                    src={`https://uvonradiojakarta.com/uvon/divisi/${selecteddivisi.foto}`}
                     alt={selecteddivisi.nama}
                     className="w-3/4 md:w-1/2 rounded-md shadow-lg"
                   />

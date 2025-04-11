@@ -21,7 +21,7 @@ const Side = () => {
       <p className="mb-2 text-2xl font-bold">UVON Chart</p>
       <iframe
         className="rounded-lg"
-        src="https://open.spotify.com/embed/playlist/63IOpwGD5rCw8b6RTvUTiD?si=4bb7519923cb412a"
+        src="https://open.spotify.com/embed/playlist/3uTQVC3awGVWV3GWeeMLD3?si=LyelXFOkQ4S8UrZrlWhnMg&pi=xFaDOOJ1SAWC1" 
         width="100%"
         height="380"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"

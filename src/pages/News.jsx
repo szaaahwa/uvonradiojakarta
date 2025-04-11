@@ -13,7 +13,7 @@ const News = () => {
   useEffect(() => {
     const fetchAllNews = async () => {
       try {
-        const res = await axios.get("http://uvon.test/news/get_news.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/news/get_news.php");
         setNews(res.data.news || []);
       } catch (error) {
         console.log(error);
@@ -52,10 +52,10 @@ const News = () => {
             />
 
             {/* Filter Button */}
-            <div className="flex gap-3 p-3">
+            <div className="flex gap-3 p-3 md:overflow-hidden overflow-x-scroll">
               {categories.map((category) => (
                 <button
-                  key={category}
+                  key={category} 
                   className={`px-3 py-2 rounded-lg text-black text-sm ${
                     selectedCategory === category
                       ? "bg-red-500 text-white"
@@ -79,7 +79,7 @@ const News = () => {
                     key={index}
                   >
                     <img
-                      src={`http://uvon.test/news/${berita.foto}`}
+                      src={`https://uvonradiojakarta.com/uvon/news/${berita.foto}`}
                       alt=""
                       className="w-15 h-15 object-cover"
                       onError={(e) => {

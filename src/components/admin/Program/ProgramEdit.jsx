@@ -17,11 +17,11 @@ const ProgramEdit = () => {
   useEffect(() => {
     const fetchProgram = async () => {
       try {
-        const response = await axios.get(`http://uvon.test/program/edit_program.php?id=${id}`);
+        const response = await axios.get(`https://uvonradiojakarta.com/uvon/program/edit_program.php?id=${id}`);
         const { nama_program, foto } = response.data;
 
         setprogramData({ nama_program });
-        setCurrentFoto(foto ? `http://uvon.test/program/${foto}` : "");
+        setCurrentFoto(foto ? `https://uvonradiojakarta.com/uvon/program/${foto}` : "");
       } catch (error) {
         console.error("Error fetching Program:", error);
         toast.error("Gagal mengambil data Program");
@@ -50,7 +50,7 @@ const ProgramEdit = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/program/edit_program.php",
+        "https://uvonradiojakarta.com/uvon/program/edit_program.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

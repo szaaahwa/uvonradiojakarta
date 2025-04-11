@@ -28,7 +28,7 @@ const MediaMain = () => {
 
     try {
       const res = await axios.post(
-        "http://uvon.test/media/add_media.php",
+        "https://uvonradiojakarta.com/uvon/media/add_media.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

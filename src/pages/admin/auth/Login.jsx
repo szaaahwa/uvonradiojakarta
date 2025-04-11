@@ -14,7 +14,7 @@ const Login = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://uvon.test/auth/admin.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon//auth/admin.php"); 
         if (res.data && res.data.users) {
           setUserData(res.data.users);
         } else {
@@ -54,7 +54,7 @@ const Login = () => {
 
         const isMatch = await bcrypt.compare(login.pass, user.password || '');
         if (isMatch) {
-            await axios.post("http://uvon.test/auth/admin.php", {
+          await axios.post("https://uvonradiojakarta.com/uvon/auth/admin.php", {
                 username: login.username,
                 login: 1,  
             });

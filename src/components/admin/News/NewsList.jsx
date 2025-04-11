@@ -13,7 +13,7 @@ const NewsList = () => {
   useEffect(() => {
     const fetchAllNews = async () => {
       try {
-        const res = await axios.get("http://uvon.test/news/get_news.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/news/get_news.php");
         setNews(res.data.news);
       } catch (error) {
         console.log(error);
@@ -33,7 +33,7 @@ const NewsList = () => {
   const handleDelete = async (id) => {
     try {
       const res = await axios.delete(
-        "http://uvon.test/news/delete_news.php?id=" + id
+        "https://uvonradiojakarta.com/uvon/news/delete_news.php?id=" + id
       );
 
       setNews((prev) => prev.filter((news) => news.id !== id));
@@ -75,7 +75,7 @@ const NewsList = () => {
             {currentNews.map((news, index) => (
               <tr className="text-center" key={index}>
                 <td className="p-2 border-r-2 border-white w-[150px]">
-                  <img src={`http://uvon.test/news/${news.foto}`} alt="" />
+                  <img src={`https://uvonradiojakarta.com/uvon/news/${news.foto}`} alt="" />
                 </td>
                 <td className="p-2 border-r-2 border-white">
                   <p className="line-clamp-1  text-white">{news.judul}</p>

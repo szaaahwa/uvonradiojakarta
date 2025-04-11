@@ -9,7 +9,7 @@ const ProgramShow = () => {
   useEffect(() => {
     const fetchAllProgram = async () => {
       try {
-        const res = await axios.get("http://uvon.test/program/program.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/program/program.php");
         setProgram(res.data.program || []);
       } catch (error) {
         console.error("Error fetching programs:", error);
@@ -34,7 +34,7 @@ const ProgramShow = () => {
           onClick={() => handleImageClick(item)}
         >
           <img
-            src={`http://uvon.test/program/${item.foto}`}
+            src={`https://uvonradiojakarta.com/uvon/program/${item.foto}`}
             alt={item.caption || "Program Image"}
             className="w-80 h-80 md:h-50 md:w-50 object-cover rounded"
             onError={(e) => (e.target.src = "logo_uvon.svg")}
@@ -51,11 +51,11 @@ const ProgramShow = () => {
         >
           <div className="flex flex-col items-center">
             <img
-              src={`http://uvon.test/program/${selectedProgram.foto}`}
-              alt={selectedProgram.caption}
+              src={`https://uvonradiojakarta.com/uvon/program/${selectedProgram.foto}`} 
+              alt={selectedProgram.nama_program}
               className="w-3/4 md:w-[400px] rounded-md shadow-lg"
             />
-            <p className="text-white text-center mt-2 px-4">{selectedProgram.caption}</p>
+            <p className="text-white text-center mt-2 px-4">{selectedProgram.nama_program}</p>
           </div>
         </div>
       )}

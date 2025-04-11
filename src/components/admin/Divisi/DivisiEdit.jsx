@@ -85,7 +85,7 @@ const DivisiEdit = () => {
     
     try {
       const res = await axios.post(
-        "http://uvon.test/divisi/edit_divisi.php",
+        "https://uvonradiojakarta.com/uvon/divisi/edit_divisi.php",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -149,7 +149,7 @@ const DivisiEdit = () => {
                   />
                   {currentFoto && (
                     <img
-                      src={`http://uvon.test/divisi/${currentFoto}`}
+                      src={`https://uvonradiojakarta.com/uvon/divisi/${currentFoto}`}
                       alt="Preview"
                       className="mt-2 w-40 rounded-lg"
                     />

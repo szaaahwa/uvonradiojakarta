@@ -12,7 +12,7 @@ const ContactUs = () => {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        const res = await axios.get("http://uvon.test/contact/contact.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/contact/contact.php");
         if (res.data && res.data.contact && res.data.contact.length > 0) {
           setContact(res.data.contact[0]);
         } else {

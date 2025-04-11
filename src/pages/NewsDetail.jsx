@@ -9,6 +9,7 @@ import { useParams } from "react-router-dom";
 import { PiUserCircleFill } from "react-icons/pi";
 import { SlCalender } from "react-icons/sl";
 import { FaRegClock } from "react-icons/fa";
+import { IoIosArrowRoundBack } from "react-icons/io";
 
 const NewsDetail = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const NewsDetail = () => {
     const getNews = async () => {
       try {
         const res = await axios.get(
-          `http://uvon.test/news/get_news.php?id=${id}`
+          `https://uvonradiojakarta.com/uvon/news/get_news.php?id=${id}`
         );
         setNews(res.data);
       } catch (error) {
@@ -30,14 +31,14 @@ const NewsDetail = () => {
     };
 
     getNews();
-  }, [id]); 
+  }, [id]);
 
   return (
     <>
       <Head title={"News Detail"} />
       <div className="font-sans flex flex-col bg-black md:pl-5 pt-5">
         <Navbar />
-        
+
         <main className="flex md:flex-row flex-col">
           <div className="md:h-screen md:w-[69%] w-full overflow-y-auto mt-2">
             <Header
@@ -45,6 +46,9 @@ const NewsDetail = () => {
               subtitle={"Stay Tuned, Stay Informed, and Stay UVON"}
             />
             <hr className="border-white mx-2 mt-2 mb-4" />
+            <a href="/news" className="flex gap-2 text-white">
+              <IoIosArrowRoundBack /> <p>Kembali</p>
+            </a>
             {loading ? (
               <div className="text-center text-white">Loading...</div>
             ) : news && news.judul ? (
@@ -73,11 +77,11 @@ const NewsDetail = () => {
                   <img
                     src={
                       news.foto
-                        ? `http://uvon.test/news/${news.foto}`
+                        ? `https://uvonradiojakarta.com/uvon/news/${news.foto}`
                         : "/logo_uvon.svg"
                     }
                     alt="News Image"
-                    className="w-full max-w-lg object-cover rounded"
+                    className="w-[400px] h-[250px] object-cover object-center rounded"
                     onError={(e) => {
                       e.target.src = "/logo_uvon.svg";
                     }}
