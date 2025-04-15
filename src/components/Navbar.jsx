@@ -11,7 +11,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="flex justify-between items-center p-4 md:p-1">
+      <nav className="flex justify-between items-center p-4 md:p-1 z-50">
         {/* Desktop Navbar */}
         <div className="hidden md:flex gap-5 items-center">
           <img src="/logo_uvon.svg" alt="Logo" className="w-20" />

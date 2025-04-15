@@ -37,7 +37,7 @@ const Home = () => {
             <div className="flex justify-between px-4 items-center">
               <h2 className="text-white text-2xl font-bold mt-5">UVON Programs</h2>
             </div>
-            <div className="px-4 flex gap-5 flex-row overflow-x-scroll md:overflow-x-hidden my-5">
+            <div className="px-4 flex gap-5 overflow-x-scroll md:overflow-x-hidden my-5 w-full">
               <ProgramShow/>
             </div>
             {/* berita uvon */}
@@ -63,7 +63,7 @@ const Home = () => {
                 Show all
               </a>
             </div>
-            <div className="flex gap-2 p-5flex-row overflow-x-scroll md:overflow-x-hiddenl">
+            <div className="flex gap-2 p-5 flex-row overflow-x-scroll md:overflow-x-hidden w-full">
               <DivisiShow/>
             </div>
             <div className="flex justify-between px-4 items-center">
@@ -75,7 +75,7 @@ const Home = () => {
                 Show all
               </a>
             </div>
-            <div className="flex gap-2 p-5 flex-row overflow-x-scroll md:overflow-x-hidden">
+            <div className="flex gap-2 p-5  overflow-x-scroll w-full">
               <MediaShow />
             </div>
             <div className="md:hidden md:w-[31%] w-full h-screen overflow-y-auto mt-2 px-2 block">

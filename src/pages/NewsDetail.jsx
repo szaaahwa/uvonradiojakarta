@@ -46,8 +46,8 @@ const NewsDetail = () => {
               subtitle={"Stay Tuned, Stay Informed, and Stay UVON"}
             />
             <hr className="border-white mx-2 mt-2 mb-4" />
-            <a href="/news" className="flex gap-2 text-white">
-              <IoIosArrowRoundBack /> <p>Kembali</p>
+            <a href="/news" className="flex text-white items-center hover:text-red-500 ease-in-out duration-300 transition-all">
+              <IoIosArrowRoundBack className="text-2xl" /> <p>Back</p>
             </a>
             {loading ? (
               <div className="text-center text-white">Loading...</div>

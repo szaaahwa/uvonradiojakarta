@@ -3,10 +3,13 @@ import axios from "axios";
 
 const DivisShow = () => {
   const [divisi, setdivisi] = useState([]);
+
   useEffect(() => {
     const fetchAlldivisi = async () => {
       try {
-        const res = await axios.get("https://uvonradiojakarta.com/uvon/divisi/divisi.php");
+        const res = await axios.get(
+          "https://uvonradiojakarta.com/uvon/divisi/divisi.php"
+        );
         setdivisi(res.data.divisi);
       } catch (error) {
         console.log(error);
@@ -14,27 +17,32 @@ const DivisShow = () => {
     };
     fetchAlldivisi();
   }, []);
+
   return (
     <>
       {Array.isArray(divisi) &&
         divisi.slice(-5).map((divisi, index) => (
           <a
             href={`/divisi`}
-            className=" text-white flex flex-col p-2 items-center gap-5 rounded-lg group"
+            className="min-w-[150px] max-w-[180px] flex flex-col items-center gap-4 p-2 rounded-lg group text-white hover:text-red-400 transition-all ease-in-out duration-300"
             key={index}
           >
-            <img
-              src={`https://uvonradiojakarta.com/uvon/divisi/${divisi.foto}`}
-              alt=""
-              className="w-30 h-30 md:h-35 md:w-35 rounded-full object-cover"
-              onError={(e) => {
-                e.target.src = "logo_uvon.svg";
-              }}
-              loading="lazy"
-            />
-            <div className="flex flex-col">
-              <p className="text-center text-sm group-hover:text-red-500 ease-in-out duration-300 transition-colors font-bold">{divisi.nama}</p>
-              <p className="text-center text-sm">{divisi.nama_divisi}</p>
+            <div className="aspect-square w-full max-w-[100px] rounded-full overflow-hidden">
+              <img
+                src={`https://uvonradiojakarta.com/uvon/divisi/${divisi.foto}`}
+                alt=""
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = "logo_uvon.svg";
+                }}
+                loading="lazy"
+              />
+            </div>
+            <div className="text-center">
+              <p className="text-sm font-bold group-hover:text-red-500 transition-colors">
+                {divisi.nama}
+              </p>
+              <p className="text-sm">{divisi.nama_divisi}</p>
             </div>
           </a>
         ))}

@@ -25,7 +25,7 @@ const Media = () => {
 
   const handleGambar = (item) => {
     setSelectedMedia(item);
-    setBigger(!bigger);
+    setBigger(true);
   };
 
   return (
@@ -33,7 +33,7 @@ const Media = () => {
       <Head title={"Media"} />
       <div className="font-sans flex flex-col bg-black md:pl-5 pt-5">
         <Navbar />
-        <main className="flex md:flex-row flex-col ">
+        <main className="flex md:flex-row flex-col">
           <div className="md:h-screen md:w-[69%] w-full overflow-y-auto mt-2 relative">
             <Header
               title={"UVON MOMENTS"}
@@ -44,17 +44,21 @@ const Media = () => {
             {media.length === 0 ? (
               <p className="text-white text-center">No media available.</p>
             ) : (
-              <div className="columns-2 md:columns-4 gap-2 space-y-2 mb-5 p-5">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-5 mb-5">
                 {media.map((item, index) => (
                   <div
                     key={index}
                     onClick={() => handleGambar(item)}
-                    className="w-full rounded-md relative mt-2 cursor-pointer"
+                    className="aspect-square rounded-md overflow-hidden cursor-pointer"
                   >
                     <img
                       src={`https://uvonradiojakarta.com/uvon/media/${item.foto}`}
                       alt={item.caption}
-                      className="w-full h-auto rounded-md"
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.src = "logo_uvon.svg";
+                      }}
+                      loading="lazy"
                     />
                   </div>
                 ))}
