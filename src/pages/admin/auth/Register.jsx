@@ -26,7 +26,7 @@ const Register = () => {
       form.append("pass", hashedPass);
 
 
-      const response = await axios.post("http://uvon.test/auth/admin.php", form, {
+      const response = await axios.post("https://uvonradiojakarta.com/uvon/auth/admin.php", form, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

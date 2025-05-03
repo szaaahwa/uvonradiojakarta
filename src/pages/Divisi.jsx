@@ -14,7 +14,7 @@ const Divisi = () => {
   useEffect(() => {
     const fetchAlldivisi = async () => {
       try {
-        const res = await axios.get("https://uvonradiojakarta.com/uvon/divisi/divisi.php");
+        const res = await axios.get("https://uvonradiojakarta.com/uvon/divisi.php");
         setdivisi(res.data.divisi);
       } catch (error) {
         console.log(error);

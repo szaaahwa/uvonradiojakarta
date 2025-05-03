@@ -8,6 +8,7 @@ const ProgramMain = () => {
   const [programData, setprogramData] = useState({
     nama_program: "",
     foto: "",
+    deskripsi_program : "",
   });
 
   const onChangeHandle = (e) => {
@@ -23,6 +24,7 @@ const ProgramMain = () => {
     const formData = new FormData();
     formData.append("nama_program", programData.nama_program);
     formData.append("foto", programData.foto);
+    formData.append("deskripsi_program", programData.deskripsi_program);
 
     try {
       const res = await axios.post(
@@ -35,13 +37,14 @@ const ProgramMain = () => {
         setprogramData({
           nama_program: "",
           foto: "",
+          deskripsi_program: "",
         });
         setTimeout(() => {
           window.location.reload();
         }, 2000);
       }
     } catch (error) {
-      console.log(error);
+      console.log(error); 
     }
   };
   return (
@@ -56,17 +59,30 @@ const ProgramMain = () => {
             <form
               method="post"
               className="flex flex-col space-y-5"
-              encType="multipart/form-data"
+              encType="multipart/form-data" 
             >
               <div className="flex flex-col gap-5">
                 <div className="flex flex-col">
                   <label htmlFor="nama_program" className="font-bold">
-                    nama Program 
+                    Nama Program 
                   </label>
                   <input
                     type="text"
                     name="nama_program"
                     value={programData.nama_program}
+                    onChange={onChangeHandle}
+                    className="border-white border-2 rounded-lg p-2 w-full"
+                    required
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="deksripsi_program" className="font-bold">
+                    Deskripsi Program 
+                  </label>
+                  <input 
+                    type="text" 
+                    name="deksripsi_program"
+                    value={programData.deskripsi_program}
                     onChange={onChangeHandle}
                     className="border-white border-2 rounded-lg p-2 w-full"
                     required

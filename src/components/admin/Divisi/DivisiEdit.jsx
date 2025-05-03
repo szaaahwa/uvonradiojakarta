@@ -60,7 +60,7 @@ const DivisiEdit = () => {
   const [currentFoto, setCurrentFoto] = useState(null);
 
   useEffect(() => {
-    axios.get(`http://uvon.test/divisi/divisi.php?id=${id}`)
+    axios.get(`https://uvonradiojakarta.com/uvon/divisi/divisi.php?id=${id}`)
       .then((res) => {
         const { nama, nama_divisi, foto } = res.data;
         setDivisiData({ nama, nama_divisi: divisiOptions.find(opt => opt.value === nama_divisi), foto: "" });

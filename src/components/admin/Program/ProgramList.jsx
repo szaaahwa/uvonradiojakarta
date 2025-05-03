@@ -59,6 +59,9 @@ const ProgramList = () => {
               <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] p-2 md:text-[20px] text-white md:px-6 border-r-2 border-white">
                 Nama Program
               </th>
+              <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] p-2 md:text-[20px] text-white md:px-6 border-r-2 border-white">
+                Deskripsi Program
+              </th>
              
               <th className="bg-gradient-to-b from-[#c24c4e] to-[#FB3748] rounded-r-md p-2 md:text-[20px] text-white md:px-6 ">
                 Aksi
@@ -73,6 +76,9 @@ const ProgramList = () => {
                 </td>
                 <td className="p-2 border-r-2 border-white">
                   <p className="line-clamp-1  text-white">{program.nama_program}</p>
+                </td>
+                <td className="p-2 border-r-2 border-white">
+                  <p className="line-clamp-1  text-white">{program.deskripsi_program}</p>
                 </td>
                 
                 <td className="p-2">

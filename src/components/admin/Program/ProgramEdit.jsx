@@ -11,6 +11,7 @@ const ProgramEdit = () => {
   const [programData, setprogramData] = useState({
     nama_program: "",
     foto: null, 
+    deskripsi_program: "",
   });
   const [currentFoto, setCurrentFoto] = useState("");
 
@@ -18,9 +19,9 @@ const ProgramEdit = () => {
     const fetchProgram = async () => {
       try {
         const response = await axios.get(`https://uvonradiojakarta.com/uvon/program/edit_program.php?id=${id}`);
-        const { nama_program, foto } = response.data;
+        const { nama_program, foto, deskripsi_program } = response.data;
 
-        setprogramData({ nama_program });
+        setprogramData({ nama_program, deskripsi_program });
         setCurrentFoto(foto ? `https://uvonradiojakarta.com/uvon/program/${foto}` : "");
       } catch (error) {
         console.error("Error fetching Program:", error);
@@ -47,6 +48,7 @@ const ProgramEdit = () => {
     if (programData.foto) {
       formData.append("foto", programData.foto); 
     }
+    formData.append("deskripsi_program", programData.deskripsi_program);
 
     try {
       const res = await axios.post(
@@ -88,6 +90,19 @@ const ProgramEdit = () => {
                   type="text"
                   name="nama_program"
                   value={programData.nama_program}
+                  onChange={onChangeHandle}
+                  className="border-white border-2 rounded-lg p-2 w-full"
+                  required
+                />
+              </div>
+              <div className="flex flex-col">
+                <label htmlFor="deksripsi_program" className="font-bold">
+                  Deskripsi Program
+                </label>
+                <input
+                  type="text"
+                  name="deksripsi_program"
+                  value={programData.deskripsi_program}
                   onChange={onChangeHandle}
                   className="border-white border-2 rounded-lg p-2 w-full"
                   required

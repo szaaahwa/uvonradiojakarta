@@ -46,6 +46,7 @@ const ProgramShow = () => {
           <div className="p-2 text-white text-center">
             <p className="text-sm font-semibold">{item.nama_program}</p>
           </div>
+          
         </div>
       ))}
 
@@ -63,6 +64,9 @@ const ProgramShow = () => {
             <p className="text-white text-center mt-2 px-4">
               {selectedProgram.nama_program}
             </p>
+            <div className="p-2 text-white text-justify w-3/4 md:w-[400px]  h-10 overflow-y-scroll"> 
+            <p className="text-sm font-semibold">{selectedProgram.deskripsi_program}</p>
+          </div>
           </div>
         </div>
       )}
